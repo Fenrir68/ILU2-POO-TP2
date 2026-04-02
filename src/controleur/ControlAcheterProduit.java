@@ -22,6 +22,9 @@ public class ControlAcheterProduit {
 	
 	public String[] trouverEtalProduit(String produit) {
 		Gaulois[] gauloisList = this.village.rechercherVendeursProduit(produit);
+		if(gauloisList==null) {
+			gauloisList = new Gaulois[0];
+		}
 		String[] noms = new String[gauloisList.length];
 		for(int i=0; i<gauloisList.length; i++) {
 			noms[i]=gauloisList[i].getNom();
