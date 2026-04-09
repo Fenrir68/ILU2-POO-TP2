@@ -20,7 +20,6 @@ class ControlEmmenagerTest {
 		village.setChef(chef);
 	}
 	
-	
 	@Test
 	void testControlEmmenager() {
 		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
@@ -50,5 +49,19 @@ class ControlEmmenagerTest {
 		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
 		controlEmmenager.ajouterGaulois("Obélix", 15);
 		assertTrue(controlEmmenager.isHabitant("Obélix"));
+	}
+	@Test
+	void testAjouterBeaucoupDeGaulois() {
+		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
+		for (int i = 0; i < 100; i++) {
+			controlEmmenager.ajouterGaulois("GAULOIS_" + i, 10);
+		}
+		for (int i = 0; i < 100; i++) {
+			if (i < 10) {
+				assertTrue(controlEmmenager.isHabitant("GAULOIS_" + i));
+			} else {
+				assertFalse(controlEmmenager.isHabitant("GAULOIS_" + i));
+			}
+		}
 	}
 }

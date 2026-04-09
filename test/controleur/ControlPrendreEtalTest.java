@@ -51,4 +51,16 @@ class ControlPrendreEtalTest {
 		assertTrue(1==controlPrendreEtal.prendreEtal("pasBonemine", "fleur", 1));
 		assertTrue(2==controlPrendreEtal.prendreEtal("Pano", "fleur", 1));
 	}
+	
+	@Test
+	void testVerifierIdentite() {
+		ControlPrendreEtal controlPrendreEtal = new ControlPrendreEtal(controlVerifierIdentite, village);
+		controlPrendreEtal.prendreEtal("Bonemine", "fleur", 1);
+		controlPrendreEtal.prendreEtal("pasBonemine", "fleur", 1);
+		assertTrue(controlPrendreEtal.verifierIdentite("Bonemine"));
+		assertTrue(controlPrendreEtal.verifierIdentite("pasBonemine"));
+		assertFalse(controlPrendreEtal.verifierIdentite("personne"));
+		assertFalse(controlPrendreEtal.verifierIdentite(""));
+		assertFalse(controlPrendreEtal.verifierIdentite("Bonemines"));
+	}
 }
