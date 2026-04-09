@@ -26,11 +26,14 @@ public class ControlLibererEtal {
 	 */
 	public String[] libererEtal(String nomVendeur) {
 		Etal etal = this.controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);
-		if(etal==null) {
-			return new String[] {String.valueOf(false), "", "", "", ""};
+		String[] res;
+		try{
+			res = etal.etatEtal();
+			etal.libererEtal();
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			res =  new String[] {String.valueOf(false), "", "", "", ""};
 		}
-		String[] res = etal.etatEtal();
-		etal.libererEtal();
 		return res;
 	}
 

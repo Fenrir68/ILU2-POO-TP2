@@ -52,5 +52,6 @@ class ControlLibererEtalTest {
 			assertTrue(actual[i].equals(expected[i]));
 		}
 		assertTrue(controlLibererEtal.libererEtal("personnes")[0].equals(String.valueOf(false)));
+		village.partirVendeur(controlTrouverEtalVendeur.trouverEtalVendeur("Bonemine").getVendeur());
 	}
 }

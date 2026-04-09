@@ -85,7 +85,11 @@ public class Village {
 	public void partirVendeur(Gaulois vendeur) {
 		Etal etal = marche.trouverVendeur(vendeur);
 		if (etal != null) {
-			etal.libererEtal();
+			try {
+				etal.libererEtal();
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
 		}
 	}
 

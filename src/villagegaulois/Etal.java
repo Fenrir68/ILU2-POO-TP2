@@ -50,7 +50,8 @@ public class Etal {
 		return quantiteAcheter;
 	}
 
-	public void libererEtal() {
+	public void libererEtal() throws Exception{
+		if(!etalOccupe) throw new Exception();
 		etalOccupe = false;
 	}
 
